@@ -1,0 +1,1 @@
+<img src="images/skyline-18.jpg" alt="Trulli" width="500" height="333">
