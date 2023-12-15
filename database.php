@@ -1,16 +1,18 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$passwoord = "";
+/*Database connection*/
+class Model{
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "gemeenterotterdam";
+    private $conn;
 
-try{
-    $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $passwoord);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connected successfully";
-}catch(PDOException $e) {
-    echo "connection failed: " . $e->getMessage();
-
+    function __construct(){
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        if($this->conn->connect_error){
+            echo 'connect failed';
+        } else {
+            return $this->conn;
+        }
+    }//constructor close
 }
-
-?>

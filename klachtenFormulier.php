@@ -55,6 +55,8 @@
 </head>
 <body>
 
+    
+
     <!--klachtenformulier aanmaken om klacht te sturen-->
     <form action="pagina.php" method="post">
         <!--naam invullen -->
@@ -64,7 +66,7 @@
         <label for="femail">Email:</label></br>
         <input type="text" id="femail" name="femail" value=""><br>
         <!--omschrijving klacht-->
-        <label for="omschrijving">omschrijving:</label></br>
+        <label for="omschrijving">Omschrijving:</label></br>
         <textarea rows="4" cols="50" name="comment" form="usrform">
             Enter text here...</textarea>
         <br>

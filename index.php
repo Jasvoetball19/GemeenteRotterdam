@@ -53,6 +53,7 @@
   <li><a href="klachtenFormulier.php">KlachtenFormulier</a></li>
   <li><a href="klachtenKaart.php">KlachtenKaart</a></li>
   <li><a href="overzicht.php">Overzicht</a></li>
+  <li><a href="oop.php">Klachtenlijst</a></li>
   <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
 
@@ -74,9 +75,9 @@
 <a href="overzicht.php">Overzicht</a>
 </ul>
 <br></br>
-<img src="images/rotterdam-1611943_1280.jpg" alt="Trulli" width="400" height="333">
-<img src="images/rotterdam-102704_1280.jpg" alt="" style="float:left;width:400px;height:333px;">
-<img src="images/skyline-18.jpg" alt="" style="float:left;width:400px;height:333px;">
+<img src="images/rotterdam-1611943_1280.jpg" alt="pj" style="float:left;width:400px;height:333px;">
+<img src="images/rotterdam-102704_1280.jpg" alt="gj" style="float:left;width:400px;height:333px;">
+<img src="images/skyscrapers-1598_1280.jpg" alt="hj" style="float:left;width:400px;height:333px;">
 <br>
 <br>
 <div class="footer">
