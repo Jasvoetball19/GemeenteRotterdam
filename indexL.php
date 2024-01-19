@@ -40,6 +40,7 @@
   <li><a href="klachtenFormulier.php">KlachtenFormulier</a></li>
   <li><a href="klachtenKaart.php">KlachtenKaart</a></li>
   <li><a href="overzicht.php">Overzicht</a></li>
+  <li><a href="indexS.php">klform</a></li>
   <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
     
