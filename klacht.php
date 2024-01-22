@@ -50,6 +50,7 @@
 <!--navbar-->
 <ul>
   <li><a href="index.php">Home</a></li>
+  <li><a href="klacht.php">Klacht</a></li>
   <li><a href="klachtenFormulier.php">KlachtenFormulier</a></li>
   <li><a href="klachtenKaart.php">KlachtenKaart</a></li>
   <li><a href="overzicht.php">Overzicht</a></li>
