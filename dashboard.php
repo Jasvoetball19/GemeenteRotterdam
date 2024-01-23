@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--boostrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Titel lijst</title>
+</head>
+<body>
+
 <style>
-     /* inhoud van de navbar */
-     #text {
+        /* inhoud van de navbar */
+        ul {
             list-style-type: none; 
             margin: 0;
             padding: 0;
@@ -12,11 +19,11 @@
             background-color: lightblue;
         }
         /* zorgt ervoor dat tekst inhoud links staat */
-      #text  li {
+        li {
             float: left;
         }
         /* inhoud van de navbar  */
-      #text  li a {
+        li a {
             display: block;
             color: black;
             text-align: center;
@@ -24,14 +31,14 @@
             text-decoration: none;
         }
         /*  */
-      #text  li a:hover:not(.active){
+        li a:hover:not(.active){
             background-color: #04AA6D;
         }
         /* */
-      #text  .active {
+        .active {
             background-color: #04AA6D ;
         }
-      #text  .column{
+        .column{
             background-color: lightgray;
         }
         .footer{
@@ -43,106 +50,115 @@
             color: white;
             text-align: center;
         }
-* {
-  box-sizing: border-box;
-}
+    </style>
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-</style>
-</head>
-<body>
-
-
-<ul id="text">
+    <!--navbar-->
+<ul>
   <li><a href="index.php">Home</a></li>
-  <li><a href="klacht.php">Klacht</a></li>
   <li><a href="klachtenFormulier.php">KlachtenFormulier</a></li>
   <li><a href="klachtenKaart.php">KlachtenKaart</a></li>
   <li><a href="dashboard.php">dashboard</a></li>
   <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4>vind hier alle klachten</h4>               
+        </div>
+        <div class="card-body">
+            <div class="row">
+            <div class="col-md-7">
+                <form action="" method="GET">
+            <div class="input-group mb-3">
+            <input type="text" name="search" value="<?php if(isset($GET['search'])) {echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
+            <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            </form>
+            </div>
+    </div>
+</div>
+</div>
 
-<h2>dashboard 5 meest recente klachten</h2>
+<div class="col-md-12">
+    <div class="card mt-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naam</th>
+                        <th>Email</th>
+                        <th>beschrijving</th>
+                        <th>lengtegraad</th>
+                        <th>breedtegraad</th>
+                        <th>titel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "gemeenterotterdam");
 
-<br>
+                    if(isset($_GET['search']))
+                    {
+                        $filtervalues = $_GET['search'];
+                        $query = "SELECT * FROM klachten WHERE CONCAT(naam,email,beschrijving,lengtegraad,breedtegraad,titel) LIKE '%$filtervalues%'";
+                        $query_run = mysqli_query($conn, $query);
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $items)
+                            {
+                                ?>
 
-<ul id="myUL">
-  <li><a href="#">1 jel K. Dick 1968 2 3 klacht</a></li>
-  <li><a href="#">2 knb 234@w stank 1 2 klacht</a></li>
+                        <tr>
+                        <td><?= $items['id']; ?></td>
+                        <td><?= $items['naam']; ?></td>
+                        <td><?= $items['email']; ?></td>
+                        <td><?= $items['beschrijving']; ?></td>
+                        <td><?= $items['lengtegraad']; ?></td>
+                        <td><?= $items['breedtegraad']; ?></td>
+                        <td><?= $items['titel']; ?></td>
+                        </tr>
 
-  <li><a href="#">3 weeli 234er46 kapotte lantaarn 4 7 klacht</a></li>
-  <li><a href="#">4 wendf weu438 boom op de weg 7 8 klacht</a></li>
+                                <?php
 
-  <li><a href="#">5 ser w45@1 tak afgebroken 1 6 klacht</a></li>
-</ul>
+                            }
 
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-</script>
+                        }
+                        else
+                        {
+                            ?>
 
-
-<br>
-
-<form action="/action_page.php">
-  <input type="file" id="myFile" name="filename">
-  <input type="submit">
-</form>
+                    <tr>
+                        <td colspan="4">No Record Found</td>
+                    </tr>
 
 
 
+                            <?php
+                        }
+                    }
+
+
+                    ?>
+
+                </tbody>
+            </table>
+
+    </div>
+</div>
 
 </div>
-    <div class="footer">
-            <p>footer</p>
-        </div>
-
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@s.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<div class="footer">
+    <p>footer</p>
+</div>
+</p>
 </body>
 </html>
 
