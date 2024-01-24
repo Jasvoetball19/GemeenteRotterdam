@@ -1,18 +1,23 @@
 <?php
-/*Database connection*/
-class Model{
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "gemeenterotterdam";
+
+class Database {
+    private $host = 'localhost';
+    private $username = 'root';
+    private $password = 'password';
+    private $database = 'gemeenterotterdam';
     private $conn;
 
-    function __construct(){
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-        if($this->conn->connect_error){
-            echo 'connect failed';
-        } else {
-            return $this->conn;
+    public function __construct() {
+        try {
+            $this->conn = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
         }
-    }//constructor close
+    }
+
+    public function connect() {
+        return $this->conn;
+    }
 }
+?>
