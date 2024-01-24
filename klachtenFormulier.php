@@ -3,50 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>home</title>
-    <style>
-        /* inhoud van de navbar */
-        ul {
-            list-style-type: none; 
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: lightblue;
-        }
-        /* zorgt ervoor dat tekst inhoud links staat */
-        li {
-            float: left;
-        }
-        /* inhoud van de navbar  */
-        li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        /*  */
-        li a:hover:not(.active){
-            background-color: #04AA6D;
-        }
-        /* */
-        .active {
-            background-color: #04AA6D ;
-        }
-        .column{
-            background-color: lightgray;
-        }
-        .footer{
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: lightblue;
-            color: white;
-            text-align: center;
-        }
-    </style>
-
+   
+   
 <!--navbar-->
 <ul>
   <li><a href="index.php">Home</a></li>
