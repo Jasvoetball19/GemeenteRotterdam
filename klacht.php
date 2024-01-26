@@ -10,11 +10,12 @@
 <!--navbar-->
 <ul>
   <li><a href="index.php">Home</a></li>
-  <li><a href="klacht.php">Klacht</a></li>
+  <Li><a href="klacht.php">Klacht</a></li>
   <li><a href="klachtenFormulier.php">KlachtenFormulier</a></li>
   <li><a href="klachtenKaart.php">KlachtenKaart</a></li>
-  <li><a href="overzicht.php">Overzicht</a></li>
-  <li><a href="oop.php">Klachtenlijst</a></li>
+  <li><a href="dashboard.php">dashboard</a></li>
+  <li><a href="gps.html">livekaart</a></li>
+  <li><a href="index.html">liveCoord</a></li>
   <li style="float:right"><a class="active" href="#about">About</a></li>
 </ul>
 
