@@ -37,7 +37,7 @@
         <div class="index-login-signup">
             <h4>SIGN UP</h4>
             <p>Dont have an account yet? sign up here!</p>
-            <form action="includes/login.inc.php" method="post">
+            <form action="klacht.php" method="post">
                 <input type="text" name="uid" placeholder="Username">
                 <input type="password" name="pwd" placeholder="Password">
                 <input type="password" name="pwdrepeat" placeholder="Repeat Password">
@@ -49,7 +49,7 @@
         <div class="index-login-login">
             <h4>LOGIN</h4>
             <p>dont have a account yet? sign up here!</p>
-            <form action="includes/login.inc.php" method="post">
+            <form action="klacht.php" method="post">
                 <input type="text" name="uid" placeholder="Username">
                 <input type="password" name="pwd" placeholder="Password">
                 <br>
